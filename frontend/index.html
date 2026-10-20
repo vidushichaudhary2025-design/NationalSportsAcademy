@@ -1,0 +1,33 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Sports Academy</title>
+</head>
+<body>
+    <h1>National Sports Academy Management System</h1>
+    <h2>Athletes</h2>
+    <button onclick="loadAthletes()">Load Athletes</button>
+    <ul id="athletes"></ul>
+
+    <script>
+        async function loadAthletes() {
+            const response = await fetch("http://127.0.0.1:5000/api/athletes");
+            const data = await response.json();
+
+            const list = document.getElementById("athletes");
+            list.innerHTML = "";
+
+            data.forEach(athlete => {
+                const item = document.createElement("li");
+                item.textContent =
+                    athlete.athlete_name + " - " + athlete.status;
+                list.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>
+```
