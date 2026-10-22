@@ -15,7 +15,7 @@ def get_db_connection():
         port=6543,
         database=os.getenv("DB_NAME", "sports_academy"),
         user=os.getenv("DB_USER", "postgres"),
-        password=os.getenv("DB_PASSWORD", "")
+        password=os.getenv("DB_PASSWORD", "SPORTSDB")
     )
 
 
